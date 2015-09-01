@@ -11,9 +11,15 @@
 <h1>Sandbox</h1>
 <div ng-controller="sandboxController as sandboxCtrl">
   <form ng-submit="outputSass()">
-    <p>Brand Primary <input type="text" name="brand-prime" ng-model="theme.brand_prime"></p>
-    <p>Brand Secondary <input type="text" name="brand-secondary" ng-model="theme.brand_secondary"></p>
+    <!-- <p>Brand Primary <input type="text" name="brand-prime" ng-model="theme.brand_prime"></p>
+    <p>Brand Secondary <input type="text" name="brand-secondary" ng-model="theme.brand_secondary"></p> -->
+    <p ng-repeat="sassInput in sassInputs">
+      {{sassInput.label}} <input type="{{sassInput.type}}" name="{{sassInput.name}}" ng-model="theme[sassInput.name]"></p>
     <p><input type="submit" value="Submit"></p>
   </form>
+
+  {{ sassInputs }}
+  <hr>
+  {{ theme[brand-prime] }}
 </body>
 </html>
