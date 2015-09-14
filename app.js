@@ -1,15 +1,18 @@
 (function(){
   angular
-    .module('sandbox', ['sandbox.services'])
+    .module('sandbox', ['sandbox.services', 'sandbox.directives'])
     .controller('sandboxController', function($scope, $http, test){
       var sandboxCtrl = this;
 
-      $scope.sassInputs = [
-        {type: 'input', label: 'Brand Primary', name: 'brand_prime'},
-        {type: 'input', label: 'Brand Secondary',name: 'brand_second'},
-        {type: 'input', label: 'Text Color',name: 'text_color'},
-        {type: 'input', label: 'Background Color',name: 'bg_color'}
+      var sassInputs = [
+        {type: 'input', label: 'Brand Primary', name: 'brand_prime', value: ''},
+        {type: 'input', label: 'Brand Secondary',name: 'brand_second', value: ''},
+        {type: 'input', label: 'Text Color',name: 'text_color', value: ''},
+        {type: 'input', label: 'Background Color',name: 'bg_color', value: ''}
       ];
+
+      $scope.formData = {};
+      $scope.formData.sassInputs = sassInputs;
 
       $scope.outputSass = function(){
         // console.log('addColors');
@@ -18,11 +21,12 @@
         // var dataSass = "/* Ouput some sass stuff */\n$black: #000;\n$white: #fff;"
         // test.exportSass(dataSass, sheetName);
         // console.log(test.toSass("testing"));
-        console.log(this.theme);
+        console.log($scope.formData.sassInputs);
       };
 
 
       $scope.outputSassServerSize = function(){
+
         var dataSass = "/* Ouput some sass stuff */\n$black: #000;\n$white: #fff;\n$red: #F00;"
         var request = $http({
           method: "post",
