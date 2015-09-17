@@ -31,7 +31,9 @@ angular.module('sandbox.services', []).
 
     box.toSass = function(styles){
 
-      var val = "/* Ouput some sass stuff */\n$black: #000;\n$white: #fff;";
+      var val = "/* Ouput some sass stuff */\n";
+
+      
 
       return val;
     };

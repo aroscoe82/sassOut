@@ -1,0 +1,22 @@
+{
+  "name": "sassOut",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aroscoe82/sassOut",
+  "authors": [
+    "Amanda Roscoe <aroscoe@corpu.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-spectrum-colorpicker": "~1.4.1",
+    "jquery": "~2.1.4",
+    "spectrum": "~1.7.1"
+  }
+}

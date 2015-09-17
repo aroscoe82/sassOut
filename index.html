@@ -2,21 +2,76 @@
 <html>
 <head>
   <title>Sandbox</title>
-  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <link rel="stylesheet" href="bower_components/spectrum/spectrum.css" />
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+
+  <script src="bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.js"></script>
+  <script src="bower_components/spectrum/spectrum.js"></script>
   <script src="app-svc.js"></script>
   <script src="app-dir.js"></script>
   <script src="app.js"></script>
+
+  <style>
+    .color{
+      margin-right: 1em;
+    }
+    input[type="submit"]{
+      font-size: 1em;
+      color: #fff;
+      background-color: #3d85c6;
+      padding: .5em 1em;
+      border: 0;
+    }
+    </style>
 </head>
 <body ng-app="sandbox" >
-<h1>Sandbox</h1>
+<h1>Sandbox - SassOut</h1>
 <div ng-controller="sandboxController as sandboxCtrl">
   <form ng-submit="outputSass()" novalidate>
-    <!-- <p>Brand Primary <input type="text" name="brand-prime" ng-model="theme.brand_prime"></p>
-    <p>Brand Secondary <input type="text" name="brand-secondary" ng-model="theme.brand_secondary"></p> -->
-    <p ng-repeat="sassInput in formData.sassInputs">
-      {{sassInput.label}} <input type="{{sassInput.type}}" name="{{sassInput.name}}" ng-model="sassInput.value"></p>
-    <p><input type="submit" value="Submit"></p>
+    <table cellpadding="10px">
+      <thead>
+        <td>Color Location</td>
+        <td>Color</td>
+        <td>Color Hex</td>
+      </thead>
+    <tr ng-repeat="sassInput in formData.sassInputs">
+      <td>{{sassInput.label}}</td>
+      <td>
+      <spectrum-colorpicker
+        trigger-id="sassInput.name"
+        ng-model="sassInput.value"
+        format="'hex'"
+        options="{
+            showInput: true,
+            showPalette: true,
+            chooseText: 'Set Color',
+            preferredFormat: 'hex',
+            palette: [
+                ['#000','#444','#666','#999','#ccc','#eee','#f3f3f3','#fff'],
+                ['#f00','#f90','#ff0','#0f0','#0ff','#00f','#90f','#f0f'],
+                ['#f4cccc','#fce5cd','#fff2cc','#d9ead3','#d0e0e3','#cfe2f3','#d9d2e9','#ead1dc'],
+                ['#ea9999','#f9cb9c','#ffe599','#b6d7a8','#a2c4c9','#9fc5e8','#b4a7d6','#d5a6bd'],
+                ['#e06666','#f6b26b','#ffd966','#93c47d','#76a5af','#6fa8dc','#8e7cc3','#c27ba0'],
+                ['#c00','#e69138','#f1c232','#6aa84f','#45818e','#3d85c6','#674ea7','#a64d79'],
+                ['#900','#b45f06','#bf9000','#38761d','#134f5c','#0b5394','#351c75','#741b47'],
+                ['#600','#783f04','#7f6000','#274e13','#0c343d','#073763','#20124d','#4c1130']
+            ]
+        }">
+        </spectrum-colorpicker></td>
+        <td>{{sassInput.value}}</td>
+      </tr>
+    <tr>
+      <td><input type="submit" value="Save"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </table>
+
+    <hr>
+    {{formData.sassInputs}}
   </form>
+</div>
 </body>
 </html>
