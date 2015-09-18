@@ -19,39 +19,9 @@
       $scope.formData.sassInputs = sassInputs;
 
       $scope.outputSass = function(){
-        // var sassString = test.toSass($scope.formData.sassInputs);
-        // $scope.outputSassServerSize(sassString);
-        console.log(test.toSass("testing"));
-      };
-
-
-      $scope.outputSassServerSize = function(){
-        // var dataSass = test.toSass($scope.formData.sassInputs);
-        // var request = $http({
-        //   method: "post",
-        //   url: window.location.href + "output2.php",
-        //   data: {
-        //     sass: dataSass,
-        //     sheetName: 'outputResults'
-        //   },
-        //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        // });
-
-        var dataSass = "/* Ouput some sass stuff */\n$black: #000;\n$white: #fff;\n$red: #F00;"
-        var request = $http({
-          method: "post",
-          url: window.location.href + "output2.php",
-          data: {
-            sass: dataSass
-          },
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        });
-
-        /* Check whether the HTTP Request is successful or not. */
-        request.success(function (data) {
-         // document.getElementById("message").textContent = "You have login successfully with email "+data;
-         //console.log(data);
-        });
+        var sheetName = "testing";
+        var dataSass = test.toSass($scope.formData.sassInputs);
+        test.exportSass(dataSass, sheetName);
       };
     });
 })();

@@ -30,13 +30,13 @@ angular.module('sandbox.services', []).
     };
 
     // box.toSass = function(styles){
-    box.toSass = function(){
+    box.toSass = function(styles){
 
-      var val = "/* Ouput some sass stuff */\n";
+      var val = "/* Output of Sass */\n";
 
-      // angular.forEach(styles, function(item){
-      //   val += '$' + item.name + ':' + item.value + ';\n';
-      // });
+      angular.forEach(styles, function(item){
+        val += '$' + item.name + ':' + item.value + ';\n';
+      });
 
       return val;
     };
