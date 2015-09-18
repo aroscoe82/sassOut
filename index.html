@@ -29,7 +29,7 @@
 <body ng-app="sandbox" >
 <h1>Sandbox - SassOut</h1>
 <div ng-controller="sandboxController as sandboxCtrl">
-  <form ng-submit="outputSass()" novalidate>
+  <form ng-submit="outputSassServerSize()" novalidate>
     <table cellpadding="10px">
       <thead>
         <td>Color Location</td>
@@ -68,9 +68,6 @@
       <td></td>
     </tr>
     </table>
-
-    <hr>
-    {{formData.sassInputs}}
   </form>
 </div>
 </body>

@@ -29,11 +29,14 @@ angular.module('sandbox.services', []).
         $form.submit();
     };
 
-    box.toSass = function(styles){
+    // box.toSass = function(styles){
+    box.toSass = function(){
 
       var val = "/* Ouput some sass stuff */\n";
 
-      
+      // angular.forEach(styles, function(item){
+      //   val += '$' + item.name + ':' + item.value + ';\n';
+      // });
 
       return val;
     };

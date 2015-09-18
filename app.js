@@ -3,7 +3,7 @@
     .module('sandbox', ['sandbox.services', 'sandbox.directives', 'angularSpectrumColorpicker'])
     .controller('sandboxController', function($scope, $http, test){
       var sandboxCtrl = this;
-      
+
       var sassInputs = [
         {type: 'text', label: 'Brand Primary', name: 'brand_prime', value: '#1b4cab'},
         {type: 'text', label: 'Brand Secondary',name: 'brand_second', value: '#'+shadeColor1('1b4cab', 25.5)}, //#628fe6
@@ -12,18 +12,30 @@
         {type: 'text', label: 'Panel Background Color',name: 'dropdownpanel_bg_color', value: '#eee'},
         {type: 'text', label: 'Panel Text Color',name: 'dropdownpanel_text_color', value: '#000'},
         {type: 'text', label: 'Link Color',name: 'link_color', value: '#000'},
-        {type: 'text', label: 'Link Hover Color',name: 'link_hover_color', value: ''},
+        {type: 'text', label: 'Link Hover Color',name: 'link_hover_color', value: '#000'},
       ];
 
       $scope.formData = {};
       $scope.formData.sassInputs = sassInputs;
 
       $scope.outputSass = function(){
-        console.log($scope.formData.sassInputs);
+        // var sassString = test.toSass($scope.formData.sassInputs);
+        // $scope.outputSassServerSize(sassString);
+        console.log(test.toSass("testing"));
       };
 
 
       $scope.outputSassServerSize = function(){
+        // var dataSass = test.toSass($scope.formData.sassInputs);
+        // var request = $http({
+        //   method: "post",
+        //   url: window.location.href + "output2.php",
+        //   data: {
+        //     sass: dataSass,
+        //     sheetName: 'outputResults'
+        //   },
+        //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        // });
 
         var dataSass = "/* Ouput some sass stuff */\n$black: #000;\n$white: #fff;\n$red: #F00;"
         var request = $http({
@@ -38,7 +50,7 @@
         /* Check whether the HTTP Request is successful or not. */
         request.success(function (data) {
          // document.getElementById("message").textContent = "You have login successfully with email "+data;
-         console.log(data);
+         //console.log(data);
         });
       };
     });
