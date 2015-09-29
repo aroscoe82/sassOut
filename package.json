@@ -4,7 +4,8 @@
   "description": "the intention is to allow a user to create a simple sass file from form inputs.  By predetermining selected needs for a style sheet, the form inputs can be formated and output for the user. This project is inspired by <http://pikock.github.io/bootstrap-magic>  pikock is a solution to bootstrap variables need, this is ment to be used for any sass project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -a localhost -p 8020",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -12,11 +13,9 @@
   },
   "author": "Amanda Roscoe",
   "license": "MIT",
-  "scripts": {
-    "postinstall": "bower install"
-  },
   "homepage": "https://github.com/aroscoe82/sassOut#readme",
   "dependencies": {
-    "bower": "^1.5.2"
+    "bower": "^1.5.2",
+    "http-server": "^0.8.5"
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sandbox">
 <head>
   <title>Sandbox</title>
   <link rel="stylesheet" href="bower_components/spectrum/spectrum.css" />
@@ -24,11 +24,16 @@
       padding: .5em 1em;
       border: 0;
     }
+    .col-half{
+      width: 50%;
+      float: left;
+      box-sizing: border-box;
+    }
     </style>
 </head>
-<body ng-app="sandbox" >
+<body ng-controller="sandboxController as sandboxCtrl">
 <h1>Sandbox - SassOut</h1>
-<div ng-controller="sandboxController as sandboxCtrl">
+<div class="col-half">
   <form ng-submit="outputSass()" novalidate>
     <table cellpadding="10px">
       <thead>
@@ -39,29 +44,10 @@
     <tr ng-repeat="sassInput in formData.sassInputs">
       <td>{{sassInput.label}}</td>
       <td>
-      <spectrum-colorpicker
-        trigger-id="sassInput.name"
-        ng-model="sassInput.value"
-        format="'hex'"
-        options="{
-            showInput: true,
-            showPalette: true,
-            chooseText: 'Set Color',
-            preferredFormat: 'hex',
-            palette: [
-                ['#000','#444','#666','#999','#ccc','#eee','#f3f3f3','#fff'],
-                ['#f00','#f90','#ff0','#0f0','#0ff','#00f','#90f','#f0f'],
-                ['#f4cccc','#fce5cd','#fff2cc','#d9ead3','#d0e0e3','#cfe2f3','#d9d2e9','#ead1dc'],
-                ['#ea9999','#f9cb9c','#ffe599','#b6d7a8','#a2c4c9','#9fc5e8','#b4a7d6','#d5a6bd'],
-                ['#e06666','#f6b26b','#ffd966','#93c47d','#76a5af','#6fa8dc','#8e7cc3','#c27ba0'],
-                ['#c00','#e69138','#f1c232','#6aa84f','#45818e','#3d85c6','#674ea7','#a64d79'],
-                ['#900','#b45f06','#bf9000','#38761d','#134f5c','#0b5394','#351c75','#741b47'],
-                ['#600','#783f04','#7f6000','#274e13','#0c343d','#073763','#20124d','#4c1130']
-            ]
-        }">
-        </spectrum-colorpicker></td>
-        <td>{{sassInput.value}}</td>
-      </tr>
+        <div sass-type post="sassInput"></div>
+      </td>
+      <td>{{sassInput.value}}</td>
+    </tr>
     <tr>
       <td><input type="submit" value="Save"></td>
       <td></td>
@@ -69,6 +55,27 @@
     </tr>
     </table>
   </form>
+</div>
+
+<div class="col-half" id="preview">
+<style>
+#preview { background-color: {{ formData.sassInputs.bg_color.value }}; padding: 1em;}
+#preview h1 { color: {{ formData.sassInputs.brand_prime.value }}; }
+#preview h2 { color: {{ formData.sassInputs.brand_secondary.value }}; }
+#preview p { color: {{ formData.sassInputs.text_color.value }}; }
+#preview .panel{ background-color: {{ formData.sassInputs.dropdownpanel_bg_color.value }}; color: {{ formData.sassInputs.dropdownpanel_text_color.value }}; padding: 1em; margin: 1em;}
+#preview a{ color: {{ formData.sassInputs.link_color.value }}; }
+#preview a:hover { color: {{ formData.sassInputs.link_hover_color.value }}; }
+</style>
+
+<h1>Brand Primary Color</h1>
+<h2>Brand Secondary Color</h2>
+
+<div class="panel">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+</div>
+
+<a href="#">Testing Link</style>
 </div>
 </body>
 </html>
