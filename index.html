@@ -39,14 +39,14 @@
       <thead>
         <td>Color Location</td>
         <td>Color</td>
-        <td>Color Hex</td>
+        <!-- <td>Color Hex</td> -->
       </thead>
     <tr ng-repeat="sassInput in formData.sassInputs">
       <td>{{sassInput.label}}</td>
       <td>
         <div sass-type post="sassInput"></div>
       </td>
-      <td>{{sassInput.value}}</td>
+      <!-- <td>{{sassInput.value}}</td> -->
     </tr>
     <tr>
       <td><input type="submit" value="Save"></td>
@@ -64,12 +64,14 @@
 #preview h2 { color: {{ formData.sassInputs.brand_secondary.value }}; }
 #preview p { color: {{ formData.sassInputs.text_color.value }}; }
 #preview .panel{ background-color: {{ formData.sassInputs.dropdownpanel_bg_color.value }}; color: {{ formData.sassInputs.dropdownpanel_text_color.value }}; padding: 1em; margin: 1em;}
-#preview a{ color: {{ formData.sassInputs.link_color.value }}; }
+#preview .panel p { color: {{ formData.sassInputs.dropdownpanel_text_color.value }}; }
+#preview a{ color: {{ formData.sassInputs.link_color.value }}; text-decoration: {{ formData.sassInputs.link_decoration.value == true ? 'underline' : 'none'}}; }
 #preview a:hover { color: {{ formData.sassInputs.link_hover_color.value }}; }
 </style>
 
 <h1>Brand Primary Color</h1>
 <h2>Brand Secondary Color</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <div class="panel">
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>

@@ -68,7 +68,7 @@
           name: 'link_decoration',
           type: 'checkbox', 
           label: 'Link Text Decoration',
-          value: 'underline'
+          value: true
         },
       };
 
