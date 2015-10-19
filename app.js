@@ -70,6 +70,12 @@
           label: 'Link Text Decoration',
           value: true
         },
+        box_color: {
+          name: 'box_color',
+          type: 'colorPallet', 
+          label: 'Box Color',
+          value: '#000'
+        },
       };
 
       $scope.formData = {};

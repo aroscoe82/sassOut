@@ -67,6 +67,7 @@
 #preview .panel p { color: {{ formData.sassInputs.dropdownpanel_text_color.value }}; }
 #preview a{ color: {{ formData.sassInputs.link_color.value }}; text-decoration: {{ formData.sassInputs.link_decoration.value == true ? 'underline' : 'none'}}; }
 #preview a:hover { color: {{ formData.sassInputs.link_hover_color.value }}; }
+#preview .box { background-color: {{ formData.sassInputs.box_color.value }}; width: 3em; height: 3em; display: box;}
 </style>
 
 <h1>Brand Primary Color</h1>
@@ -77,7 +78,9 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
 </div>
 
-<a href="#">Testing Link</style>
+<a href="#">Testing Link</a>
+
+<div class="box">&nbsp;</div>
 </div>
 </body>
 </html>
